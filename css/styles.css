@@ -1,0 +1,724 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Delius+Unicase:wght@400;700&family=Knewave&display=swap");
+
+/* Estilos generales */
+body {
+
+  background-color:hsl(332, 58%, 57%);background-image:radial-gradient(circle at 40% 20%, hsl(332, 58%, 57%) 0%,transparent 50%),radial-gradient(circle at 80% 0%, hsla(333.52941176470586,100%,56%,1) 0%,transparent 50%),radial-gradient(circle at 0% 50%, hsla(355,100%,93%,1) 0%,transparent 50%),radial-gradient(circle at 80% 50%, hsl(332, 58%, 57%) 0%,transparent 50%),radial-gradient(circle at 0% 100%, hsla(22,100%,77%,1) 0%,transparent 50%),radial-gradient(circle at 80% 100%, hsla(0,100%,27%,1) 0%,transparent 50%),radial-gradient(circle at 0% 0%, hsl(332, 58%, 57%) 0%,transparent 50%);background-blend-mode:normal,normal,normal,normal,normal,normal,normal;
+  cursor: url(assets/icon/cursor-body.cur), auto;
+  font-family: "Delius", cursive;
+   /*background-color: hsl(332, 58%, 57%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+  width: 430px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #f2f2f2; */
+  background: 0px 0px 35px 7px rgba(0,0,0,0.4);;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 35px 7px rgba(0,0,0,0.6);
+}
+
+/* Caja fuerte */
+.caja-fuerte {
+  display: flex;
+  background-color: transparent;
+  border: 2px solid #fff ;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen de la caja fuerte */
+.imagen img {
+  width: 200px;
+  height: 285px;
+  border-radius: 10px;
+}
+
+/* Teclado */
+.teclado {
+  margin-left: 20px;
+}
+
+/* Estilos para el display del teclado */
+.display {
+  width: 80%;
+  height: 50px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.display svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  color: #d1548f; /* Color del ícono */
+}
+
+#texto-codigo {
+  flex-grow: 1;
+  font-family: "Delius", cursive;
+  color: #333;
+}
+
+/* Modo de contraseña */
+.display.modo-password #texto-codigo {
+  font-family: monospace; /* Usamos una fuente monoespaciada para los puntos */
+  letter-spacing: 2px; /* Espaciado entre los puntos */
+}
+
+/* Botones del teclado */
+.botones-teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.botones-teclado button {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d1548f;
+  color: white;
+  cursor: url(assets/icon/love-pointer.cur), auto;
+  transition: background-color 0.3s;
+  font-family: "Delius Unicase", cursive;
+  cursor: pointer;
+}
+
+.botones-teclado button:hover {
+  background-color: #e56ab5;
+}
+
+/* Sección del contador (oculta inicialmente) */
+#seccion-contador {
+  display: none;
+  text-align: center; /* Centra el contenido dentro de la sección */
+  padding: 20px;
+  background-color: #ffffffd7;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Cabecera del contador */
+.cabecera {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+}
+
+.imagen-cabecera {
+  width: 80px;
+  height: 80px;
+  padding: 4px;
+  border-radius: 50%;
+  border: 3px dashed #e56ab5;
+  margin-right: 40px;
+  object-fit: cover;
+}
+
+.titulo-cabecera {
+  background-color: #d1548f;
+  padding: 10px 40px;
+  border-radius: 20px;
+  color: white;
+}
+
+.titulo-cabecera h1 {
+  margin: 2px;
+  font-size: 24px;
+  font-family: "Rubik Spray Paint", cursive;
+}
+
+/* Contador */
+.contador {
+  text-align: center;
+}
+
+/* Primera línea: Años, Meses, Días */
+#linea-superior {
+  font-size: 34px;
+  font-weight: bold;
+  color: #d1548f;
+  margin-bottom: 20px;
+  font-family: "Knewave", cursive;
+}
+
+#linea-superior span {
+  margin: 0 5px;
+}
+
+/* Segunda línea: Horas, Minutos, Segundos */
+#linea-inferior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.unidad-tiempo {
+  background-color: #eee;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.unidad-tiempo span {
+  font-size: 74px;
+  font-weight: bold;
+  color: #d1548f;
+  display: block;
+  font-family: "Knewave", cursive;
+}
+
+.unidad-tiempo p {
+  font-size: 24px;
+  margin: 5px 0 0;
+  font-family: "Knewave", cursive;
+  color: #df4c71;
+}
+
+/* Botón del contador */
+.boton-contador {
+  width: auto; /* Ancho automático para que no ocupe el 100% */
+  display: inline-flex; /* Flexbox para alinear el contenido */
+  align-items: center; /* Centrar verticalmente el ícono y el texto */
+  justify-content: center; /* Centrar horizontalmente */
+  padding: 15px 30px; /* Ajustamos el padding para que se vea mejor */
+  background-color: #d1548f;
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-size: 18px;
+  cursor: url(assets/icon/love-pointer.cur), pointer;
+  gap: 8px; /* Espacio entre el ícono y el texto */
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  font-family: "Delius Unicase", cursive;
+  text-align: center; /* Centramos el texto dentro del botón */
+}
+
+.boton-contador:hover {
+  background-color: #e56ab5;
+}
+
+.boton-contador svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Evita que el ícono se reduzca */
+}
+
+
+/* Estilos para la sección de la galería */
+.seccion-galeria {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffffd7;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.titulo-galeria h1 {
+    font-size: 24px;
+    color: #d1548f;
+    font-family: "Rubik Spray Paint", cursive;
+    margin-bottom: 20px;
+}
+
+.fotos {
+  display: flex;
+  flex-wrap: wrap; /* Permite múltiples filas */
+  justify-content: center;
+  gap: 10px;
+  max-height: 400px; /* Ajusta la altura máxima del contenedor */
+  overflow-y: auto; /* Agrega un scroll vertical */
+  padding: 10px;
+}
+
+.fotos img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer; /* Hace que parezca clickeable */
+}
+
+/**/
+/* ESTILOS DEL MODAL */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* BOTÓN PARA CERRAR */
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+/**/
+
+
+.boton-transparente {
+    background-color: transparent;
+    color: #d1548f;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: url(assets/icon/love-pointer-q.cur), pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: "Delius", cursive;
+
+}
+
+.boton-transparente:hover {
+    background-color: #fab2d4;
+    color: white;
+}
+
+.boton-tiempo {
+ border: none;
+}
+
+/* Estilos para la sección de la carta */
+.seccion-carta {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffffd7;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo de cada sobre (párrafo cerrado) */
+.parrafo {
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d1548f;
+  box-shadow: 1px 1px 15px 5px #e98bb7;
+  line-height: 1.6;
+  font-family: "Delius", cursive;
+  text-align: left;
+  cursor: pointer;
+  background-color: #fce4ec; /* Color de sobre cerrado */
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+/* Cambia de color al pasar el mouse */
+.parrafo:hover {
+  background-color: #f8bbd0;
+}
+
+/* Contenido oculto por defecto */
+.contenido {
+  display: none;
+  font-weight: normal;
+  color: black;
+  margin-top: 10px;
+}
+/*titulo de carta*/
+
+.titulo-carta h1 {
+    font-size: 24px;
+    color: #d1548f;
+    font-family: "Rubik Spray Paint", cursive;
+    margin-bottom: 20px;
+}
+
+.contenido-carta p {
+    font-size: 16px;
+    color: #333;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid #d1548f;
+    box-shadow: 1px 1px 15px 10px #e98bb7;
+    line-height: 1.6;
+    font-family: "Delius", cursive;
+    text-align: left;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 370px;
+    height: 400px;
+  }
+
+  /* Caja fuerte */
+  .caja-fuerte {
+    display: flex;
+    background-color: #fff;
+    border: 5px solid #e56ab5;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Imagen de la caja fuerte */
+  .imagen img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  /* Teclado */
+  .teclado {
+    margin-left: 10px;
+  }
+
+  /* Estilos para el display del teclado */
+  .display {
+    width: 80%;
+    height: 40px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 18px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .display svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    color: #d1548f; /* Color del ícono */
+  }
+
+  /* Botones del teclado */
+  .botones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+
+  /*______________________________________*/
+
+  #seccion-contador {
+    display: none;
+    text-align: center; /* Centra el contenido dentro de la sección */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 340px;
+    width: 100%;
+  }
+  
+  /* Cabecera del contador */
+  .cabecera {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+  }
+  
+  .imagen-cabecera {
+    width: 50px;
+    height: 50px;
+    padding: 4px;
+    border-radius: 50%;
+    border: 4px dashed #e56ab5;
+    margin-right: 20px;
+  }
+  
+  .titulo-cabecera {
+    background-color: #d1548f;
+    padding: 6px 20px;
+    border-radius: 20px;
+  }
+  
+  .titulo-cabecera h1 {
+    margin: 4px;
+    font-size: 16px;
+    font-family: "Rubik Spray Paint", cursive;
+  }
+
+  
+  /* Primera línea: Años, Meses, Días */
+  #linea-superior {
+    font-size: 26px;
+    font-weight: bold;
+    color: #d1548f;
+    margin-bottom: 20px;
+    font-family: "Knewave", cursive;
+  }
+  
+  /* Segunda línea: Horas, Minutos, Segundos */
+  #linea-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .unidad-tiempo {
+    background-color: #eee;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .unidad-tiempo span {
+    font-size: 64px;
+    font-weight: bold;
+    color: #d1548f;
+    display: block;
+    font-family: "Knewave", cursive;
+  }
+  
+  .unidad-tiempo p {
+    font-size: 16px;
+    margin: 4px 0 0;
+    font-family: "Knewave", cursive;
+    color: #df4c71;
+  }
+
+}
+
+/* Estilos específicos para celulares */
+@media screen and (max-width: 480px) {
+  .container {
+    width: 370px;
+    height: 340px;
+  }
+
+  /* Caja fuerte */
+  .caja-fuerte {
+    display: flex;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Imagen de la caja fuerte */
+  .imagen img {
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+  }
+
+  /* Teclado */
+  .teclado {
+    margin-left: 10px;
+  }
+
+  /* Estilos para el display del teclado */
+  .display {
+    width: 80%;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 10px;
+    margin-bottom: 5px;
+    position: relative;
+  }
+
+  /* Botones del teclado */
+  .botones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  /*-----------------------*/
+  #seccion-contador {
+    display: none;
+    text-align: center; /* Centra el contenido dentro de la sección */
+    padding: 20px;
+    background-color: #f2f2f2bb;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    width: 80%;
+  }
+  /* Cabecera del contador */
+  .cabecera {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+  }
+  
+  .imagen-cabecera {
+    width: 90px;
+    height: 70px;
+    padding: 4px;
+    border-radius: 50%;
+    border: 4px dashed #e56ab5;
+    margin-right: 20px;
+  }
+  
+  .titulo-cabecera {
+    background-color: #d1548f;
+    padding: 6px 20px;
+    border-radius: 20px;
+  }
+  
+  .titulo-cabecera h1 {
+    margin: 4px;
+    font-size: 18px;
+    font-family: "Rubik Spray Paint", cursive;
+  }
+
+  
+  /* Primera línea: Años, Meses, Días */
+  #linea-superior {
+    font-size: 25px;
+    font-weight: bold;
+    color: #d1548f;
+    margin-bottom: 20px;
+    font-family: "Knewave", cursive;
+  }
+  
+  /* Segunda línea: Horas, Minutos, Segundos */
+  #linea-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .unidad-tiempo {
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .unidad-tiempo span {
+    font-size: 50px;
+    font-weight: bold;
+    color: #d1548f;
+    display: block;
+    font-family: "Knewave", cursive;
+  }
+  
+  .unidad-tiempo p {
+    font-size: 16px;
+    margin: 4px 0 0;
+    font-family: "Knewave", cursive;
+    color: #df4c71;
+  }
+
+  .fotos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+  .fotos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+      gap: 5px;
+      justify-items: center;
+  }
+
+  .fotos img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .titulo-cabecera {
+    background-color: #d1548f;
+    padding: 6px 20px;
+    border-radius: 20px;
+  }
+  
+  .titulo-cabecera h1 {
+    margin: 1px;
+    font-size: 15px;
+    font-family: "Rubik Spray Paint", cursive;
+  }
+  
+  .unidad-tiempo {
+    background-color: #eee;
+    padding: 7px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .unidad-tiempo span {
+    font-size: 35px;
+    font-weight: bold;
+    color: #d1548f;
+    display: block;
+    font-family: "Knewave", cursive;
+  }
+
+  .fotos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 5px; /* Espacio entre las imágenes */
+    justify-items: center; /* Centra las imágenes en la celda */
+}
+
+.fotos img {
+    width: 100%; /* Ocupa el 100% de su celda */
+    height: 150px;
+    object-fit: cover;
+}
+  
+}
+
